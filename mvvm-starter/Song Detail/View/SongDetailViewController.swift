@@ -19,30 +19,23 @@ class SongDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad()
-        setupUI()
+        //TODO 1: Tell the VM that the view has laoded
     }
     
     private func setupUI() {
-        artistNameLabel.text = viewModel.artist
-        songImage.image = UIImage(named:viewModel.songImageName)
-        releaseDateLabel.text = viewModel.releaseDate
-        songNameLabel.text = viewModel.songName
-       
-        setButtonText()
+        
+        //TODO 1.1: set the values in the storyboard
+
+        //TODO 1.2: Set the button's text
     }
     
     private func setButtonText(){
-        if viewModel.isFavorite{
-            favoriteButton.setTitle("Remove from Favorites", for: .normal)
-        }else{
-            favoriteButton.setTitle("Add to Favorites", for: .normal)
-        }
+        //TODO 1.3: If the song is a fav the button should say "Remove from favorites", "Add to favorites" if not
+        
     }
     
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-        viewModel.markFavoriteButtonPressed()
-        setButtonText()
+        //TODO 4: handle the logic when pressed, inform the VM
     }
     
 }

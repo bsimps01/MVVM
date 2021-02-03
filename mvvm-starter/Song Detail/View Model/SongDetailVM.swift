@@ -8,17 +8,19 @@
 import Foundation
 
 class SongDetailVM {
-        
-    private (set) var songName, songImageName, artist, releaseDate: String!
-    private (set) var isFavorite: Bool!
+      
+    //TODO 4: Make these properties private to ensure only the VM can manupulate them
+    var songName, songImageName, artist, releaseDate: String!
+    var isFavorite: Bool!
     
     private var dataModel: Song! = nil
     
     var markFavoriteButtonPressed: () -> () = { }
     
     func viewDidLoad() {
-        configureDataModel(data: songData())
-        configureOutput()
+        //TODO 2: call the configureDataModel with generated data for a song
+        
+        //TODO 3: call the configureOutput method
         
         markFavoriteButtonPressed = { [weak self] in
             guard let _self = self else { return }
@@ -26,8 +28,10 @@ class SongDetailVM {
         }
     }
         
+    
     private func songData() -> [String: Any] {
-        return DataSource.randomSong()
+        //TODO 2.1: Return a random song using the Data Source
+        return [:]
     }
     
     private func configureDataModel(data: [String: Any]) {
@@ -35,17 +39,13 @@ class SongDetailVM {
     }
     
     private func configureOutput() {
-        songName = dataModel.songName
-        songImageName = dataModel.songImageName
-        artist = dataModel.artist
-        isFavorite = dataModel.isFavorite
-        releaseDate = releaseDisplayData()
+        //TODO 3.1: Configure the output that can be accessed by the view
     }
     
     private func releaseDisplayData() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd,yyyy"
-        return dateFormatter.string(from: dataModel.releaseDate)
+        //TODO 3.2: Use the format "MMMM dd,yyyy" for the release date
+
+        return ""
     }
     
 }
