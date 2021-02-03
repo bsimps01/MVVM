@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieDetailVM {
+class SongDetailVM {
         
     private (set) var songName, songImageName, artist, releaseDate: String!
     private (set) var isFavorite: Bool!
@@ -17,7 +17,7 @@ class MovieDetailVM {
     var markFavoriteButtonPressed: () -> () = { }
     
     func viewDidLoad() {
-        configureDataModel(data: movieData())
+        configureDataModel(data: songData())
         configureOutput()
         
         markFavoriteButtonPressed = { [weak self] in
@@ -26,7 +26,7 @@ class MovieDetailVM {
         }
     }
         
-    private func movieData() -> [String: Any] {
+    private func songData() -> [String: Any] {
         return DataSource.randomSong()
     }
     
@@ -39,10 +39,10 @@ class MovieDetailVM {
         songImageName = dataModel.songImageName
         artist = dataModel.artist
         isFavorite = dataModel.isFavorite
-        releaseDate = releaseDisplayDataForMovie()
+        releaseDate = releaseDisplayData()
     }
     
-    private func releaseDisplayDataForMovie() -> String {
+    private func releaseDisplayData() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd,yyyy"
         return dateFormatter.string(from: dataModel.releaseDate)

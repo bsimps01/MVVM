@@ -15,7 +15,7 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var songNameLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    private var viewModel = MovieDetailVM()
+    private var viewModel = SongDetailVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
